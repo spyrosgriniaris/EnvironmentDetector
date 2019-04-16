@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "233927398759",
+    "firebase_url": "https://mywallchat-1edf5.firebaseio.com",
+    "project_id": "mywallchat-1edf5",
+    "storage_bucket": "mywallchat-1edf5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233927398759:android:dba3d90a8587c5f0",
+        "android_client_info": {
+          "package_name": "com.myhost.spyros.environmentdetector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233927398759-9m8tocq6hi8hguhbq1fn29rb31268ivk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myhost.spyros.environmentdetector",
+            "certificate_hash": "e9594d284bd205e418293de3b4d10b8279874548"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6dZIzWRDfjZ9xVFaZZFK02zQPEScy8L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233927398759-7mbkp82d2lb4pq93d7brk4qhn81lpsq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233927398759:android:0471c65ec0d5fa0a",
+        "android_client_info": {
+          "package_name": "com.myhost.spyros.mywallchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "233927398759-lbh0jrmi4asg1m79n0snib9roinkan9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.myhost.spyros.mywallchat",
+            "certificate_hash": "e9594d284bd205e418293de3b4d10b8279874548"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6dZIzWRDfjZ9xVFaZZFK02zQPEScy8L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233927398759-7mbkp82d2lb4pq93d7brk4qhn81lpsq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:233927398759:android:ddc7c7478b644e70",
+        "android_client_info": {
+          "package_name": "com.myhost.spyros.textrecognizer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6dZIzWRDfjZ9xVFaZZFK02zQPEScy8L0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "233927398759-7mbkp82d2lb4pq93d7brk4qhn81lpsq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/light_blue_background">
+
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:background="@drawable/info"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:id="@+id/scrollView"
+        android:scrollbars="none"
+        android:paddingTop="200dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true"
+                android:id="@+id/displayInfoCardview"
+                android:layout_marginTop="100dp">
+
+                <android.support.v7.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    app:columnCount="2">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/objectFoundNameLbl"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Object Found Name: " />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/objectFoundName"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dateLbl"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Date:"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date"
+                        android:textSize="12sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/latitudeLbl"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Latitude:" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/latitude"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/longitudeLbl"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="Longitude:"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/longitude"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:id="@+id/objectFoundInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:typeface="sans"
+                        android:textSize="18sp"
+                        android:layout_marginRight="15dp"
+                        android:padding="10dp"
+                        app:layout_columnSpan="2"
+                        app:layout_columnWeight="1"
+                        app:layout_gravity="fill_horizontal"
+                        android:scrollbars="vertical|horizontal"
+                        android:ellipsize="none"/>
+                </android.support.v7.widget.GridLayout>
+            </android.support.v7.widget.CardView>
+        </FrameLayout>
+    </ScrollView>
+</FrameLayout>
