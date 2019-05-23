@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E8E8E8"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -15,22 +17,81 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:id="@+id/detect_btn_main"
-        android:text="Detect"
-        android:enabled="true"
-        android:textSize="24sp"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-         />
+    <RelativeLayout
+        android:id="@+id/relativeTop"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="56dp"
+        >
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/profile_main"
+            android:background="@drawable/pic_profile"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/profile_main"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="60dp"
+            android:id="@+id/profile_lbl_main"
+            android:textSize="20sp"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/location_main"
+            android:background="@drawable/pic_location"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:layout_below="@id/profile_main"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/location_main"
+            android:layout_below="@id/profile_lbl_main"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="60dp"
+            android:id="@+id/location_lbl_main"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <github.hellocsl.cursorwheel.CursorWheelLayout
+        android:layout_marginTop="70dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/wheelImage"
+        app:wheelBackgroundColor="#DBE1E1"
+        app:wheelCursorColor="#009688"
+        app:wheelCursorHeight="20dp"
+        app:wheelItemRotateMode="none"
+        app:wheelSelectedAngle="270"
+        android:layout_below="@id/relativeTop">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large.Inverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_wheel_menu_center_item"
+            android:gravity="center"
+            android:text="Text Wheel"
+            android:textColor="#009688"
+            />
+
+    </github.hellocsl.cursorwheel.CursorWheelLayout>
+
 
 
 </RelativeLayout>

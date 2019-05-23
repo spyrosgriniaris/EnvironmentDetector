@@ -1,58 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="10"
+    android:orientation="horizontal"
     tools:context=".ImageLabelingActivity">
 
     <com.wonderkiln.camerakit.CameraView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
         android:id="@+id/camera_view"
-        android:layout_above="@id/grid"
-        android:layout_weight="9.92"
-        android:layout_marginBottom="0dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     </com.wonderkiln.camerakit.CameraView>
-
-
-
-    <GridLayout
-        android:layout_marginBottom="0dp"
-        android:layout_weight="0.08"
-        android:id="@+id/grid"
-        android:layout_width="match_parent"
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alignmentMode="alignMargins"
-        android:columnCount="2"
-        android:rowCount="1"
-        >
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
 
-        <Button
+        <android.support.design.widget.FloatingActionButton
             android:id="@+id/btn_detect_img_lbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginLeft="0dp"
-            android:text="Detect"
-            android:background="@drawable/rounded_button" />
+            android:backgroundTint="#dfdfdf"
+            />
 
-        <Button
-            android:id="@+id/btn_clear_img_lbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_rowWeight="1"
-            android:layout_columnWeight="1"
-            android:layout_marginRight="0dp"
-            android:text="Clear"
-            android:background="@drawable/rounded_button" />
-    </GridLayout>
+    </RelativeLayout>
 
 
 
 
-</LinearLayout>
+
+
+
+
+</RelativeLayout>

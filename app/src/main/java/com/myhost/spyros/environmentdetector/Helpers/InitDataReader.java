@@ -1,8 +1,11 @@
-package com.myhost.spyros.environmentdetector;
+package com.myhost.spyros.environmentdetector.Helpers;
+
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.myhost.spyros.environmentdetector.Object;
+import com.myhost.spyros.environmentdetector.R;
 import com.opencsv.CSVReader;
 
 import java.io.BufferedReader;

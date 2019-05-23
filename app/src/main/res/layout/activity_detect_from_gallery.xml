@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DetectFromGalleryActivity"
+    android:background="#E8E8E8">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/gallery_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="85dp"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_placeholder" />
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                app:columnCount="3"
+                app:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/rotate_left"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_rotate_left"
+                    android:backgroundTint="@color/common_google_signin_btn_text_light_pressed"
+                    app:layout_columnWeight="1" />
+
+                <Button
+                    android:id="@+id/rotate_right"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_rotate_right"
+                    android:backgroundTint="@color/common_google_signin_btn_text_light_pressed"
+                    app:layout_columnWeight="1" />
+                <Button
+                    android:id="@+id/btn_detect_gallery"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ic_send"
+                    android:backgroundTint="@color/common_google_signin_btn_text_light_pressed"
+                    app:layout_columnWeight="1" />
+
+
+            </android.support.v7.widget.GridLayout>
+
+
+            <android.support.v7.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:columnCount="2"
+                app:rowCount="4">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="FileName :"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/fileName_lbl"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/filename"
+                    />
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="Position :"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/position_lbl"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/position"/>
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="Space :"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/space_lbl"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/space"/>
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:text="Date :"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/date_taken_lbl"/>
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:textSize="16sp"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif"
+                    android:id="@+id/date_taken"/>
+
+
+            </android.support.v7.widget.GridLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

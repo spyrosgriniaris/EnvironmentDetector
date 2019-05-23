@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/light_blue_background">
+    android:background="#EDF8F9">
 
     <ImageView
         android:id="@+id/poster"
@@ -54,6 +54,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/dateLbl"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -61,31 +62,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/date"
                         android:textSize="12sp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/latitudeLbl"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="Latitude:" />
+                        android:text="City:" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/latitude"
                         android:textSize="16sp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/longitudeLbl"
+                        android:layout_marginTop="10dp"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="Longitude:"/>
+                        android:text="Country:"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:id="@+id/longitude"
                         android:textSize="16sp"/>
 

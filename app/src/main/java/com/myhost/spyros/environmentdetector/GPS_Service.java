@@ -18,7 +18,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.widget.Toast;
 
-public class GPS_Service extends Service {
+public class
+GPS_Service extends Service {
 
     private final long UPDATE_TIME_FREQUENCY = 300000; //5 minutes in millis
     private final float UPDATE_DISTANCE_FREQUENCY = 500;
@@ -29,6 +30,7 @@ public class GPS_Service extends Service {
 
     //variable to check if service is on
     public static boolean isLocationServiceOn = false;
+    public static Location mLocation;
 
     private IBinder mBinder = new myServiceBinder();
 
@@ -40,7 +42,10 @@ public class GPS_Service extends Service {
             @Override
             public void onLocationChanged(Location location) {
                 ImageLabelingActivity.usersCurrentLocation = location;
+                MainActivity.usersCurrentLocation = location;
+                mLocation = location;
                 sendLocation(location);
+                //Toast.makeText(getApplicationContext(),String.valueOf(location.getLatitude()),Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -88,6 +93,7 @@ public class GPS_Service extends Service {
     //every time user changes location, activity receives the new coordinates
     private void sendLocation(Location location){
         Intent locationIntent = new Intent();
+        locationIntent.setAction("GetLocation");
         Bundle bundle = new Bundle();
         bundle.putParcelable("Location",location);
         locationIntent.putExtra("Location",bundle);
@@ -110,6 +116,7 @@ public class GPS_Service extends Service {
     public IBinder onBind(Intent intent) {
         Log.v(LOG_TAG,"In onBind");
         isLocationServiceOn = true;
+        sendLocation(mLocation);
         return mBinder;
     }
 

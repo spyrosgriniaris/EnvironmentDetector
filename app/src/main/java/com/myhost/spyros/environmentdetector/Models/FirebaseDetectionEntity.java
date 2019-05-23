@@ -1,4 +1,5 @@
-package com.myhost.spyros.environmentdetector;
+package com.myhost.spyros.environmentdetector.Models;
+
 
 public class FirebaseDetectionEntity {
 

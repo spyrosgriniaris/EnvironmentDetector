@@ -5,6 +5,8 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 
+import com.myhost.spyros.environmentdetector.Helpers.InitDataReader;
+
 import java.util.List;
 
 import static com.myhost.spyros.environmentdetector.DisplayInfoActivity.OBJECT_NAME_TO_BE_DISPLAYED;

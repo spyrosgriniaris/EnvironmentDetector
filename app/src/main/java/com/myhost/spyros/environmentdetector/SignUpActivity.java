@@ -19,12 +19,18 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.myhost.spyros.environmentdetector.Models.User;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class SignUpActivity extends AppCompatActivity {
 
+
+    //Firebase Database reference for user roles
+    DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
 
     //request codes
     private final int REQUEST_LOGIN_ACTIVITY = 1;
@@ -69,13 +75,19 @@ public class SignUpActivity extends AppCompatActivity {
                                 public void onSuccess(AuthResult authResult) {
                                     add_user = false;
                                     Toast.makeText(getApplicationContext(),"Registration Successful",Toast.LENGTH_SHORT).show();
+                                    User user = new User();
+                                    user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                    user.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                                    user.setRole("user");
+                                    FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("roles")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user);
                                     startActivityForResult(new Intent(SignUpActivity.this,MainActivity.class),REQUEST_MAIN_ACTIVITY_AFTER_REGISTRATION);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             add_user = false;
-                            Toast.makeText(getApplicationContext(),"Something went wrong. Try again.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     });
                 }

@@ -11,10 +11,12 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.IBinder;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,6 +29,7 @@ import com.google.firebase.ml.vision.label.FirebaseVisionCloudImageLabelerOption
 import com.google.firebase.ml.vision.label.FirebaseVisionImageLabel;
 import com.google.firebase.ml.vision.label.FirebaseVisionImageLabeler;
 import com.google.firebase.ml.vision.label.FirebaseVisionOnDeviceImageLabelerOptions;
+import com.myhost.spyros.environmentdetector.Helpers.DetectInternetConnection;
 import com.wonderkiln.camerakit.CameraKitError;
 import com.wonderkiln.camerakit.CameraKitEvent;
 import com.wonderkiln.camerakit.CameraKitEventListener;
@@ -38,14 +41,14 @@ import java.util.List;
 
 import dmax.dialog.SpotsDialog;
 
-public class ImageLabelingActivity extends AppCompatActivity {
+public class ImageLabelingActivity extends AppCompatActivity implements SurfaceHolder.Callback {
 
     static final int REQUEST_OBJECT_INFO = 1;
 
     //init views
     CameraView cameraView;
-    Button btnDetectImgLbl;
-    Button btnClearImgLbl;
+    FloatingActionButton btnDetectImgLbl;
+    //Button btnClearImgLbl;
     AlertDialog waitingDialog;
 
     //variables for managing gps_Service binding and unbinding processes
@@ -65,9 +68,10 @@ public class ImageLabelingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_labeling);
         //startService(new Intent(this,GPS_Service.class));
         //init views
-        btnClearImgLbl = (Button) findViewById(R.id.btn_clear_img_lbl);
+        //btnClearImgLbl = (Button) findViewById(R.id.btn_clear_img_lbl);
         cameraView = (CameraView)findViewById(R.id.camera_view);
-        btnDetectImgLbl = (Button)findViewById(R.id.btn_detect_img_lbl);
+        btnDetectImgLbl = (FloatingActionButton)findViewById(R.id.btn_detect_img_lbl);
+        btnDetectImgLbl.bringToFront();
         waitingDialog = new SpotsDialog.Builder().setContext(this).setMessage("Please wait...").setCancelable(false).build();
 
         //add listeners ti views
@@ -105,13 +109,6 @@ public class ImageLabelingActivity extends AppCompatActivity {
             }
         });
 
-        btnClearImgLbl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                cameraView.stop();
-                cameraView.start();
-            }
-        });
 
         LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(
                 mMessageReceiver, new IntentFilter("location_update"));
@@ -136,6 +133,7 @@ public class ImageLabelingActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         cameraView.stop();
+        unbindService();
     }
 
 
@@ -169,19 +167,19 @@ public class ImageLabelingActivity extends AppCompatActivity {
             };
         }
         serviceIntentHelper = new Intent(ImageLabelingActivity.this,GPS_Service.class);
-        LocalBroadcastManager.getInstance(ImageLabelingActivity.this).registerReceiver(mMessageReceiver,new IntentFilter());
+        LocalBroadcastManager.getInstance(ImageLabelingActivity.this).registerReceiver(mMessageReceiver,new IntentFilter("GetLocation"));
         bindService(serviceIntentHelper,serviceConnection,Context.BIND_AUTO_CREATE);
     }
 
     //method for unbinding from Service
-//    private void unbindService(){
-//        if(isServiceBound && serviceConnection != null){
-//            LocalBroadcastManager.getInstance(ImageLabelingActivity.this).unregisterReceiver(
-//                    mMessageReceiver);
-//            isServiceBound = false;
-//
-//        }
-//    }
+    private void unbindService(){
+        if(isServiceBound && serviceConnection != null){
+            LocalBroadcastManager.getInstance(ImageLabelingActivity.this).unregisterReceiver(
+                    mMessageReceiver);
+            isServiceBound = false;
+
+        }
+    }
 
     private void runDetector(Bitmap bitmap){
         final FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(bitmap);
@@ -278,4 +276,17 @@ public class ImageLabelingActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        cameraView.start();
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        cameraView.stop();
+    }
 }

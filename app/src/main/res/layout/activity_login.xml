@@ -7,6 +7,7 @@
     tools:context=".LoginActivity"
     android:background="#70B4D0">
 
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:paddingLeft="24dp"
         android:paddingRight="24dp"
         android:background="#70B4D0">
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -40,6 +42,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
+
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,11 +56,19 @@
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/progressBar_login"/>
+
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/loginButton"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="10dp"
             android:padding="10dp"
             android:background="@drawable/rounded_button"
@@ -73,6 +84,7 @@
             android:layout_marginTop="20dp"
             />
     </LinearLayout>
+
 
 
 

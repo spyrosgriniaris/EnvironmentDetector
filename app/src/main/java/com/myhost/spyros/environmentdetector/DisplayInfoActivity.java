@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,10 +19,13 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.myhost.spyros.environmentdetector.Models.FirebaseDetectionEntity;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class DisplayInfoActivity extends AppCompatActivity {
@@ -38,6 +43,10 @@ public class DisplayInfoActivity extends AppCompatActivity {
     //variables to store users current location, provided by GPS_Service through ImageLabelingActivity's Intent
     private double usersCurrentLatitude;
     private double usersCurrentLongitude;
+
+    //variables to get info about location from latitude and longitude of user
+    Geocoder geocoder;
+    List<Address> addresses;
 
     //variables to create FirebaseDetectionEntity to push in Firebase
     private String objectName;
@@ -99,16 +108,24 @@ public class DisplayInfoActivity extends AppCompatActivity {
                 }
                 if(usersCurrentLatitude == 0 || usersCurrentLongitude == 0){
                     //init views
-                    usersLatitudeTxtView.setText("Latitude not available.");
-                    usersLongitudeTxtView.setText("Longitude not available");
+                    usersLatitudeTxtView.setText("City not available");
+                    usersLongitudeTxtView.setText("Country not available");
                     //init Entity's variables
                     objectLatitude = 0;
                     objectLongitude = 0;
                 }
                 else{
-                    //init views
-                    usersLatitudeTxtView.setText(String.valueOf(usersCurrentLatitude));
-                    usersLongitudeTxtView.setText(String.valueOf(usersCurrentLongitude));
+                    geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+                    try {
+                        addresses = geocoder.getFromLocation(usersCurrentLatitude,usersCurrentLongitude,1);
+                        String city = addresses.get(0).getLocality();
+                        String country = addresses.get(0).getCountryName();
+                        usersLatitudeTxtView.setText(city);
+                        usersLongitudeTxtView.setText(country);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                     //init Entity's variables
                     objectLatitude = usersCurrentLatitude;
                     objectLongitude = usersCurrentLongitude;
@@ -146,7 +163,7 @@ public class DisplayInfoActivity extends AppCompatActivity {
             Map<String, FirebaseDetectionEntity> object = new HashMap<>();
             object.put(entity.getDetectedObjectName(), entity);
             //FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("Objects").push().setValue(object);
-            FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference(
+            FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("Users").child(
                     FirebaseAuth.getInstance().getCurrentUser().getUid())
                     .child("Objects").push().setValue(object);
         }

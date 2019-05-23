@@ -1,4 +1,4 @@
-package com.myhost.spyros.environmentdetector;
+package com.myhost.spyros.environmentdetector.Helpers;
 
 import android.os.AsyncTask;
 
