@@ -68,19 +68,19 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 add_user = true;
-                if((check_inputs(email.getText().toString(),password.getText().toString().trim(),fullName.getText().toString().trim())) && add_user == true){
+                if((check_inputs(email.getText().toString().trim(),password.getText().toString().trim(),fullName.getText().toString().trim())) && add_user == true){
                     FirebaseAuth.getInstance().createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
                                     add_user = false;
-                                    Toast.makeText(getApplicationContext(),"Registration Successful",Toast.LENGTH_SHORT).show();
                                     User user = new User();
                                     user.setId(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                     user.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
                                     user.setRole("user");
                                     FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("roles")
                                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user);
+                                    Toast.makeText(getApplicationContext(),"Registration Successful",Toast.LENGTH_SHORT).show();
                                     startActivityForResult(new Intent(SignUpActivity.this,MainActivity.class),REQUEST_MAIN_ACTIVITY_AFTER_REGISTRATION);
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
@@ -102,6 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
         else
             return true;
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

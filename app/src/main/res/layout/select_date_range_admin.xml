@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/select_date_range_admin_rel">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Starting Date"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="24sp"
+        android:id="@+id/select_first_date_admin_Lbl"
+        android:gravity="center_horizontal"
+        android:textStyle="italic"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick"
+        android:layout_toRightOf="@+id/select_first_date_admin_Lbl"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="70dp"
+        android:backgroundTint="#bdbdbd"
+        android:src="@drawable/ic_date_range"
+        android:id="@+id/pick_first_date_btn"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Last Date"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="24sp"
+        android:id="@+id/select_last_date_admin"
+        android:layout_below="@id/select_first_date_admin_Lbl"
+        android:gravity="center_horizontal"
+        android:textStyle="italic"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pick"
+        android:layout_toRightOf="@+id/select_last_date_admin"
+        android:layout_below="@id/pick_first_date_btn"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="106dp"
+        android:backgroundTint="#bdbdbd"
+        android:src="@drawable/ic_date_range"
+        android:id="@+id/pick_last_date_btn"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="To"
+        android:textSize="24sp"
+        android:id="@+id/date_div_admin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/pick_last_date_btn"
+        android:layout_marginTop="56dp"
+        android:textStyle="italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/first_date_display_admin"
+        android:layout_toLeftOf="@id/date_div_admin"
+        android:layout_below="@id/pick_last_date_btn"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:text="----"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="56dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/last_date_display_admin"
+        android:layout_toRightOf="@id/date_div_admin"
+        android:layout_below="@id/pick_last_date_btn"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:text="----"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="56dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_range_submit_btn_admin"
+        android:layout_below="@id/date_div_admin"
+        android:layout_centerHorizontal="true"
+        android:text="Submit"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginLeft="56dp"/>
+
+</RelativeLayout>

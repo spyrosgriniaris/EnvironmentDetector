@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.firebase.gde.MainActivity">
+
+    //Create an item element for every action//
+<item
+    android:id="@+id/action_add_user"
+    android:orderInCategory="102"
+    android:title="gallery"
+    android:icon="@drawable/ic_add"
+    app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_sign_out"
+        android:orderInCategory="101"
+        android:title="Sign out"
+        app:showAsAction="never" />
+</menu>

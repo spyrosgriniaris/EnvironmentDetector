@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:id="@+id/select_point_from_map_admin_rel">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Region from map"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="22sp"
+        android:id="@+id/select_from_map_Lbl"
+        android:gravity="center_horizontal"
+        android:textStyle="italic"/>
+
+    <ImageView
+        android:id="@+id/select_from_map_icon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="70dp"
+        android:layout_toRightOf="@id/select_from_map_Lbl"
+        android:background="@drawable/ic_map"
+
+        android:backgroundTint="#323232" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/admin_choose_radius_Lbl"
+        android:text="Choose radius for your point."
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        android:layout_below="@id/select_from_map_Lbl"/>
+
+    <NumberPicker
+        android:id="@+id/number_picker_admin"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_below="@id/admin_choose_radius_Lbl"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/custon_number_picker"
+        android:layout_centerInParent="true"
+        android:theme="@style/NumberPickerTheme"></NumberPicker>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/admin_select_from_map_submit_button"
+        android:layout_below="@id/number_picker_admin"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Submit"/>
+
+
+
+
+
+
+</RelativeLayout>

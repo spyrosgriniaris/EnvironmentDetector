@@ -283,7 +283,8 @@ public class MainActivity extends AppCompatActivity implements CursorWheelLayout
 
             }
             else if(lstImage.get(pos).imageDescription.equals("Profile")){
-
+                Intent intent = new Intent(getApplicationContext(),ViewUserProfileActivity.class);
+                startActivity(intent);
             }
 
         }

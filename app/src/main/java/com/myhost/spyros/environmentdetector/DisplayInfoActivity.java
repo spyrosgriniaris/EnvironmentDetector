@@ -160,12 +160,12 @@ public class DisplayInfoActivity extends AppCompatActivity {
         if (!objectName.equals("Not available")) {
             //handling writing data to Firebase
             FirebaseApp.initializeApp(this);
-            Map<String, FirebaseDetectionEntity> object = new HashMap<>();
-            object.put(entity.getDetectedObjectName(), entity);
+            //Map<String, FirebaseDetectionEntity> object = new HashMap<>();
+            //object.put(entity.getDetectedObjectName(), entity);
             //FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("Objects").push().setValue(object);
             FirebaseDatabase.getInstance("https://detectordata.firebaseio.com/").getReference("Users").child(
                     FirebaseAuth.getInstance().getCurrentUser().getUid())
-                    .child("Objects").push().setValue(object);
+                    .child("Objects").push().setValue(entity);
         }
         shouldPushToDatabase = false;
     }
