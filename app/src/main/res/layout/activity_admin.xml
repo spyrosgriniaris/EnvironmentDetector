@@ -22,47 +22,65 @@
 
     </android.support.design.widget.AppBarLayout>
     
-    <LinearLayout
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="#E8E8E8"-->
+        <!--android:layout_marginTop="56dp">-->
+        <!---->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Options"-->
+            <!--android:textStyle="bold"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textSize="26sp"-->
+            <!--android:layout_marginTop="24dp"-->
+            <!--android:id="@+id/optionsLblAdmin" />-->
+
+        <!--<Spinner-->
+            <!--android:id="@+id/optionsSpinnerAdmin"-->
+            <!--android:layout_width="350dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginRight="8dp">-->
+
+        <!--</Spinner>-->
+
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="40dp"-->
+            <!--android:background="#dbdbdb"-->
+            <!--android:id="@+id/adminRelativeLayout">-->
+
+
+
+        <!--</RelativeLayout>-->
+        <!---->
+    <!--</LinearLayout>-->
+
+    <FrameLayout
+        android:id="@+id/fragment_container_admin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="#E8E8E8"
-        android:layout_marginTop="56dp">
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Options"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:textSize="26sp"
-            android:layout_marginTop="24dp"
-            android:id="@+id/optionsLblAdmin" />
+        android:layout_marginTop="56dp"
+        android:layout_above="@id/bottom_navigation_admin">
 
-        <Spinner
-            android:id="@+id/optionsSpinnerAdmin"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="8dp">
+    </FrameLayout>
 
-        </Spinner>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation_admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_navigation_admin"
+        android:background="?android:attr/windowBackground">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="#dbdbdb"
-            android:id="@+id/adminRelativeLayout">
-
-
-
-        </RelativeLayout>
-        
-    </LinearLayout>
-
+    </android.support.design.widget.BottomNavigationView>
 
 
 

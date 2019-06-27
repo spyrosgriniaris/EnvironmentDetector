@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/view_all_objects_bottom_nav_admin"
+        android:icon="@drawable/ic_select_all"
+        android:title="Objects" />
+
+    <item android:id="@+id/view_all_users_bottom_nav_admin"
+        android:icon="@drawable/ic_account"
+        android:title="Users" />
+
+    <item android:id="@+id/search_for_object_bottom_nav_admin"
+        android:icon="@drawable/ic_search"
+        android:title="Search" />
+
+    <item android:id="@+id/search_in_date_range_bottom_nav_admin"
+        android:icon="@drawable/ic_date_range"
+        android:title="Date Range" />
+
+    <item android:id="@+id/search_in_area_bottom_nav_admin"
+        android:icon="@drawable/ic_map"
+        android:title="Map" />
+
+</menu>

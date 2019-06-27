@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:id="@+id/search_object_rel">
+    android:id="@+id/fragS_search_object_rel">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/first_Lbl"
+        android:id="@+id/fragS_first_Lbl"
         android:text="Search Object"
         android:textSize="24sp"
         android:layout_centerHorizontal="true"
@@ -21,8 +21,8 @@
         android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_centerHorizontal="true"
-        android:id="@+id/search_object_edTxt"
-        android:layout_below="@id/first_Lbl"
+        android:id="@+id/fragS_search_object_edTxt"
+        android:layout_below="@id/fragS_first_Lbl"
         android:layout_marginTop="24dp"
         android:hint="Insert Name Of Object"
         android:gravity="center_horizontal"
@@ -31,12 +31,12 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:id="@+id/search_object_submit_btn"
+        android:id="@+id/fragS_search_object_submit_btn"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/search_object_edTxt"
+        android:layout_below="@id/fragS_search_object_edTxt"
         android:text="Submit"
         />
 
